@@ -1,0 +1,10 @@
+Features:
+1. Multiple Sessions
+    Modify the database, maintaining two databse, one for users and one for sessions.
+    When the user login, logout, createsession, joinsession, leavesession, and sent private message (feature 2) only the user database is updated. Each user has a linked list of sessions.
+    
+    However, when the user demand a list or send a message broadcast to the session, the database for session is updated by looking into the user database. Each session has a linked list of users. Then it can give session list and broadcast to all user in the session on the session list.
+    
+2. Private message
+    Three new MACROs are added in message.h PRIVATE, PRIVATE_ACK, and PRIVATE_NAK.
+    When user send a private message using the format :<user to send to> <message content>, the server acknowledge this private message and send a new message to the other user. The other user then get to know the private message and the sender.
